@@ -5,3 +5,4 @@ resources:
 - karpenter.yaml
 - karpenter-iam.yaml
 - ack-multi-account.yaml
+- kro.yaml
