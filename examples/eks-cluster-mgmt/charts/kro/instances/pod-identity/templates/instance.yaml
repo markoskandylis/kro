@@ -1,0 +1,14 @@
+apiVersion: kro.run/v1alpha1
+kind: PodIdentity
+metadata:
+  name: {{ include "kro-pi-instance.name" . }}
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  name: {{ include "kro-pi-instance.name" . }}
+  role:
+    policies:
+    {{- range .Values.role.policies }}
+    - "{{ . }}"
+    {{- end }}
