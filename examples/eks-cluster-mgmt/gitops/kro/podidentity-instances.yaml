@@ -33,9 +33,6 @@ spec:
             targetRevision: '{{.metadata.annotations.addons_repo_revision}}'
             ref: values
           - repoURL: '{{.metadata.annotations.addons_repo_url}}'
-            path: 'charts/kro/rgs/{{.values.addonChart}}'
-            targetRevision: '{{.metadata.annotations.addons_repo_revision}}'
-          - repoURL: '{{.metadata.annotations.addons_repo_url}}'
             path: 'charts/kro/instances/{{.values.addonChart}}'
             targetRevision: '{{.metadata.annotations.addons_repo_revision}}'
             helm:
