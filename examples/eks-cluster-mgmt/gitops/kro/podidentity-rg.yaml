@@ -1,0 +1,45 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: kro-podidentity-rg
+spec:
+  goTemplate: true
+  syncPolicy:
+    preserveResourcesOnDeletion: true
+  generators:
+    - merge:
+        mergeKeys: [server]
+        generators:
+          - clusters:
+              values:
+                addonChart: pod-identity
+              selector:
+                matchExpressions:
+                  - key:  enable_kro_podidentity_rg
+                    operator: In
+                    values: ['true']
+          - clusters:
+              selector:
+                matchLabels:
+                  environment: excluded-workload
+  template:
+    metadata:
+      name: addon-{{.name}}-{{.values.addonChart}}-rg
+    spec:
+      project: default
+      sources:
+          - repoURL: '{{.metadata.annotations.addons_repo_url}}'
+            targetRevision: '{{.metadata.annotations.addons_repo_revision}}'
+            ref: values
+          - repoURL: '{{.metadata.annotations.addons_repo_url}}'
+            path: 'charts/kro/rgs/{{.values.addonChart}}'
+            targetRevision: '{{.metadata.annotations.addons_repo_revision}}'
+      destination:
+        namespace: "kro-rgs"
+        name: '{{.name}}'
+      syncPolicy:
+        automated: {}
+        syncOptions:
+          - CreateNamespace=true
+          - ServerSideApply=true  # Big CRDs.
