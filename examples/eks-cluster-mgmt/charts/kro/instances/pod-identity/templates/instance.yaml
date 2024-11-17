@@ -11,7 +11,7 @@ metadata:
   name: "{{ include "kro-pi-instance.name" $root }}-{{ . }}"
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-wave: "-5"
 spec:
   name: {{$name}}
   values:
