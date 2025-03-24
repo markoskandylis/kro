@@ -51,10 +51,6 @@ status:
   loadBalancerARN: ${ingress.status.loadBalancer.ingress[0].hostname}
 ```
 
-KRO enables:
-- Resource state tracking through status fields
-- Access to resource properties using CEL expressions
-- Exposing important values to be consumed by other resources
 
 Example of resource dependency in IngressTriangle:
 ```yaml
