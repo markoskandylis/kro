@@ -1,4 +1,4 @@
-# KRO Resource Orchestration with SSL-enabled Ingress
+# SSL-enabled Ingress
 
 This example demonstrates how to use KRO (Kube Resource Orchestrato) to orchestrate complex resource relationships, creating a fully automated SSL-enabled ingress setup with certificate management and DNS configuration.
 
