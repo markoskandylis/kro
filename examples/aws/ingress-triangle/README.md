@@ -4,7 +4,7 @@ This example demonstrates how to use KRO  to orchestrate complex resource relati
 
 ## Architecture Overview
 
-The example uses a two-layer Resource Graph Definition (RGD) approach:
+The example uses a two-layer RGD approach:
 
 1. **IngressTriangle RGD**: Base layer managing SSL/DNS infrastructure
    - ACM Certificate management
