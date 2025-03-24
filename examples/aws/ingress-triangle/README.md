@@ -37,7 +37,7 @@ The example uses a two-layer Resource Graph Definition (RGD) approach:
    - Required for Ingress resource implementation
    - Handles SSL termination and routing
 
-## Resource Orchestration with KRO
+## RGDs
 
 ### 1. IngressTriangle RGD - Base Infrastructure
 
