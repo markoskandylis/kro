@@ -20,10 +20,6 @@ The example uses a two-layer Resource Graph Definition (RGD) approach:
 
 ### Required Controllers
 
-1. **KRO Controller**
-   - Core controller for Resource Graph Definition management
-   - Handles resource orchestration and dependency management
-   - Processes CEL expressions for resource status and conditions
 
 2. **AWS Controllers for Kubernetes (ACK)**
    - **ACM Controller**
