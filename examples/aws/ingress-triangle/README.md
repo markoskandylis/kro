@@ -32,7 +32,7 @@ The example uses a two-layer RGD approach:
      - Handles DNS validation records
      - Required for domain validation and DNS management
 
-3. **AWS Load Balancer Controller**
+2. **AWS Load Balancer Controller**
    - Manages AWS Application Load Balancer (ALB) resources
    - Required for Ingress resource implementation
    - Handles SSL termination and routing
