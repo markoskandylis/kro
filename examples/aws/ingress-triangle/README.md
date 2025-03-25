@@ -21,7 +21,7 @@ The example uses a two-layer RGD approach:
 ### Required Controllers
 
 
-2. **AWS Controllers for Kubernetes (ACK)**
+1. **AWS Controllers for Kubernetes (ACK)**
    - **ACM Controller**
      - Manages AWS Certificate Manager resources
      - Handles SSL/TLS certificate lifecycle
