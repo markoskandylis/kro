@@ -81,14 +81,15 @@ var CreateRGDCmd = &cobra.Command{
 			}
 			return nil
 		}
-		// Actual operation (not dry run)
+		// Create operation (not dry run)
 		if exists {
+			newRGD.ResourceVersion = oldRGD.ResourceVersion
 			if err := c.Update(context.Background(), &newRGD); err != nil {
 				return fmt.Errorf("failed to update RGD: %w", err)
 			}
 			fmt.Printf("Updated ResourceGraphDefinition: %s\n", newRGD.Name)
 		} else {
-			// Create new resource
+			// Create new resource if old one does not exist
 			if err := c.Create(context.Background(), &newRGD); err != nil {
 				return fmt.Errorf("failed to create RGD: %w", err)
 			}
@@ -99,7 +100,6 @@ var CreateRGDCmd = &cobra.Command{
 }
 
 func showDeltaComparison(oldRGD krov1alpha1.ResourceGraphDefinition, newRGD krov1alpha1.ResourceGraphDefinition) error {
-	// Ensure apiVersion and kind are set
 	oldRGD.APIVersion = "kro.run/v1alpha1"
 	oldRGD.Kind = "ResourceGraphDefinition"
 	newRGD.APIVersion = "kro.run/v1alpha1"
