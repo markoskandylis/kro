@@ -60,7 +60,7 @@ var CreateRGDCmd = &cobra.Command{
 		}
 
 		// Try to get old RGD if Exists
-		oldRGD, exists, err := getResourceIfExists(c, newRGD.Name)
+		oldRGD, exists, err := getRGDIfExists(c, newRGD.Name)
 		if err != nil {
 			return err
 		}
